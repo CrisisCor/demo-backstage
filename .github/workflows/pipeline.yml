@@ -9,4 +9,4 @@ jobs:
   build-and-push:
     uses: CrisisCor/templates/.github/workflows/build-and-push.yml@main
     with:
-      key-word: "latest"
+      tag: "latest"
