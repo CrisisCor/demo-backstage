@@ -10,5 +10,6 @@ jobs:
     uses: CrisisCor/templates/.github/workflows/build-and-push.yml@main
     with:
       tag: "latest"
+    secrets:
       user: ${{ secrets.DOCKERHUB_USERNAME }}
       pass: ${{ secrets.DOCKERHUB_TOKEN }}
