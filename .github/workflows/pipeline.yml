@@ -6,16 +6,17 @@ on:
       - main
 
 jobs:
+  job1:
+    uses: CrisisCor/templates/.github/workflows/build-and-push.yml@main
+    with:
+      key-word: "HELLO MFs"
+  
   build-and-push:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
-    - uses: CrisisCor/templates/.github/workflows/build-and-push.yml@main
-      with:
-        key-word: "HELLO MFs"
 
     - name: Install dependencies
       run: npm install
