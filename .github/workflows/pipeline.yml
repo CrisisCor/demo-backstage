@@ -16,9 +16,6 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: alerts-to-owasp10
-      uses: KittyChiu/alerts-to-owasp10@v0.1.2
-
     - name: Aqua Security Trivy
       uses: aquasecurity/trivy-action@0.20.0
       
