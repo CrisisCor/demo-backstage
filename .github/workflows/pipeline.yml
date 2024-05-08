@@ -1,4 +1,4 @@
-name: Hello Image pipeline
+name: Hello Image CI pipeline
 
 on:
   push:
