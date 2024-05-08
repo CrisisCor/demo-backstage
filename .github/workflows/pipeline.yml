@@ -13,7 +13,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - uses: CrisisCor/.github/workflows/build-and-push.yml@main
+    - uses: CrisisCor/templates/.github/workflows/build-and-push.yml@main
       with:
         key-word: "HELLO MFs"
 
