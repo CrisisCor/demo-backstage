@@ -14,3 +14,4 @@ jobs:
     secrets:
       user: ${{ secrets.DOCKERHUB_USERNAME }}
       pass: ${{ secrets.DOCKERHUB_TOKEN }}
+      token: ${{ secrets.TOKEN }}
