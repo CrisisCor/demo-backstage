@@ -11,7 +11,7 @@ jobs:
     with:
       tag: "latest"
       repo-user: "crisiscor"
-      repo-name: "Microservice-back-05"
+      repo-name: "Microservice-back-06"
     secrets:
       user: ${{ secrets.DOCKERHUB_USERNAME }}
       pass: ${{ secrets.DOCKERHUB_TOKEN }}
