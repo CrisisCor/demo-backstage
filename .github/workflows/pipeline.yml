@@ -1,17 +1,46 @@
-name: Build
+name: Generate Docs
 on:
   push:
     branches:
       - main
 jobs:
-  sonarcloud:
-    name: SonarCloud
+#  sonarcloud:
+#    name: SonarCloud
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+#      - name: SonarCloud Scan
+#        uses: SonarSource/sonarcloud-github-action@master
+#        env:
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  publish-docs:
     runs-on: ubuntu-latest
+
+    env:
+      ENTITY_NAMESPACE: "default"
+      ENTITY_KIND: "component"
+      ENTITY_NAME: "pragma-datadog"
+
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-node@v2
+      with:
+        node-version: "18"
+        
+    - name: Install TechDocs CLI
+      run: npm install -g @techdocs/cli
+
+    - name: Install MkDocs TechDocs Core
+      run: pip install mkdocs-techdocs-core
+
+    - name: Generate Docs
+      run: techdocs-cli generate --no-docker --verbose
+
+    - name: Publish Docs on S3
+      run: techdocs-cli publish --publisher-type awsS3 --storage-name pragma-backstage-docs --entity $ENTITY_NAMESPACE/$ENTITY_KIND/$ENTITY_NAME
+
+    
+      
