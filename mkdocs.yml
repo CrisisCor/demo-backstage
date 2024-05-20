@@ -1,0 +1,14 @@
+site_name: 'Microservicio Pepito'
+site_description: 'Documentación técnica del proyecto Pepito'
+site_author: 'Pragma'
+site_url: 'https://example.com'
+repo_url: 'https://github.com/tuusuario/tu-proyecto'
+repo_name: 'Repositorio del Proyecto'
+
+plugins:
+  - techdocs-core
+
+nav:
+  - Home: index.md
+  - Endpoints: endpoints.md
+  - dependencias: dependencies.md
